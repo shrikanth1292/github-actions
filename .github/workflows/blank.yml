@@ -18,3 +18,10 @@ jobs:
 
       - name: run a script
         run: echo "challa srikanth"
+        
+  third-job:
+    needs: [first-job, second-job]
+    runs-on: ubuntu-latest
+    steps:
+    - name: output github context
+      run: echo "${{tojson(github)}}"
